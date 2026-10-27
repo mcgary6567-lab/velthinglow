@@ -157,7 +157,7 @@
     [.29, 'rgba(255,255,255,.55)'], [.36, 'rgba(255,255,255,0)'], [.68, 'rgba(20,14,6,.04)'],
     [.88, 'rgba(20,14,6,.22)'], [.94, 'rgba(255,255,255,.28)'], [1, 'rgba(20,14,6,.4)']];
   const FROST = [[0, '#bfc5ca'], [.14, '#dfe4e7'], [.3, '#ffffff'], [.42, '#eef1f3'], [.75, '#d8dde1'], [.92, '#eef1f3'], [1, '#b4babf']];
-  const SILVER = [[0, '#7f8388'], [.1, '#cfd2d6'], [.2, '#ffffff'], [.3, '#c3c7cb'], [.52, '#959a9f'], [.72, '#e6e8ea'], [.88, '#a2a6ab'], [1, '#74787d']];
+  const GOLD = [[0, '#7a4c0f'], [.1, '#c9953a'], [.2, '#fff1c4'], [.3, '#e2b45a'], [.52, '#a8741f'], [.72, '#f3d37f'], [.88, '#b98327'], [1, '#6e430c']];
   const WHITE = [[0, '#c5c5c1'], [.16, '#efefec'], [.3, '#ffffff'], [.62, '#ecebe8'], [.88, '#cfcfcb'], [1, '#b5b5b1']];
 
   function draw(b, rotDeg) {
@@ -202,20 +202,20 @@
     sg.addColorStop(0, 'rgba(255,255,255,.45)'); sg.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.fillStyle = sg; ctx.fill();
 
-    // --- silver collar ---
+    // --- gold collar ---
     const cr = 37, ce = E * cr / R;
     ctx.beginPath();
     ctx.moveTo(-cr, -312); ctx.lineTo(-cr, -258);
     ctx.ellipse(0, -258, cr, ce, 0, Math.PI, 0, true);
     ctx.lineTo(cr, -312); ctx.closePath();
-    ctx.fillStyle = hGrad(ctx, -cr, cr, SILVER); ctx.fill();
+    ctx.fillStyle = hGrad(ctx, -cr, cr, GOLD); ctx.fill();
     ctx.save(); ctx.clip();
-    ctx.globalAlpha = .18; ctx.strokeStyle = '#3b3f44'; ctx.lineWidth = 1;
+    ctx.globalAlpha = .18; ctx.strokeStyle = '#4a2c05'; ctx.lineWidth = 1;
     for (const y of [-300, -270]) { ctx.beginPath(); ctx.ellipse(0, y, cr, ce, 0, 0, Math.PI); ctx.stroke(); }
     ctx.restore();
     ctx.beginPath(); ctx.ellipse(0, -312, cr, ce, 0, 0, Math.PI * 2);
     const tg = ctx.createRadialGradient(-8, -314, 2, 0, -312, cr);
-    tg.addColorStop(0, '#f4f5f6'); tg.addColorStop(.7, '#b9bdc2'); tg.addColorStop(1, '#8d9196');
+    tg.addColorStop(0, '#fff3cf'); tg.addColorStop(.7, '#d6a548'); tg.addColorStop(1, '#94631a');
     ctx.fillStyle = tg; ctx.fill();
 
     // --- white rubber bulb ---
