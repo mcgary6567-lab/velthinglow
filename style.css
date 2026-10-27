@@ -110,25 +110,24 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .hero-trust{display:flex;flex-wrap:wrap;gap:22px;list-style:none;margin-top:26px;font-size:.9rem;font-weight:600;color:var(--ink-2)}
 .hero-trust b{color:var(--orange-2);margin-right:4px}
 
-.hero-stage{position:relative;height:640px;perspective:1500px;perspective-origin:50% 40%;cursor:grab;touch-action:pan-y;user-select:none}
-.hero-stage:active{cursor:grabbing}
-.halo{position:absolute;left:50%;top:46%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,206,110,.75),rgba(255,206,110,0) 65%)}
-.halo::after{content:"";position:absolute;inset:60px;border-radius:50%;border:1.5px dashed rgba(240,138,28,.35);animation:spin 40s linear infinite}
+.hero-stage{position:relative;height:640px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.duo{position:absolute;inset:0}
-.bottle-slot{position:absolute;bottom:40px;width:200px;height:560px}
-.bottle-slot.left{left:calc(50% - 205px)}
-.bottle-slot.right{left:calc(50% + 5px)}
-.floor-shadow{position:absolute;left:50%;bottom:18px;width:190px;height:34px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(70,40,0,.38),rgba(70,40,0,0) 70%);filter:blur(4px)}
+/* hero video in a story-style ring */
+.vc-pos{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);z-index:2}
+.vc{position:relative;width:min(460px,82vw);height:min(460px,82vw);border-radius:50%;padding:7px}
+.vc::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(#F59B17,#FFD27A,#E58E1A,#FFC757,#F59B17);animation:spin 6s linear infinite}
+.vc-in{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;overflow:hidden;border:6px solid var(--cream,#FBF6EE);background:#efe6d8;-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.vc-in video,.vc-in img{width:100%;height:100%;object-fit:cover;display:block}
+.ripple{position:absolute;inset:-4%;border-radius:50%;border:2px solid rgba(245,155,23,.45);animation:rip 3s ease-out infinite;z-index:-1;pointer-events:none}
+.ripple.r2{animation-delay:1.5s}
+@keyframes rip{from{transform:scale(.96);opacity:.9}to{transform:scale(1.18);opacity:0}}
+.vc-tag{position:absolute;left:50%;top:-5%;transform:translateX(-50%);z-index:3;background:#fff;color:var(--ink);font-size:.74rem;font-weight:800;letter-spacing:.06em;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 12px 26px -12px rgba(120,70,0,.5)}
+.vc-tag i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:1px;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
 .chip{position:absolute;z-index:3;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9);padding:9px 16px;border-radius:999px;font-size:.8rem;font-weight:700;box-shadow:0 14px 34px -14px rgba(120,70,0,.45);white-space:nowrap;pointer-events:none;transition:transform .2s ease-out}
 .chip::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-right:8px;vertical-align:1px}
 .c1{left:2%;top:16%}.c2{right:0;top:30%}.c3{left:0;bottom:9%}.c4{right:0;bottom:3%}
-.drag-hint{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:.78rem;font-weight:600;color:var(--grey);white-space:nowrap}
-.drag-hint span{display:inline-block;animation:nudge 1.6s ease-in-out infinite;color:var(--orange-2);font-weight:800}
-@keyframes nudge{50%{transform:translateX(6px)}}
-
-/* canvas 3D bottle */
-.bottle{position:absolute;left:50%;bottom:28px;width:220px;height:440px;transform:translateX(-50%);filter:drop-shadow(0 18px 24px rgba(90,55,10,.18))}
+.vc-cap{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:.8rem;font-weight:600;color:var(--grey);white-space:nowrap}
 
 /* Strip */
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1240px;margin:0 auto;padding:0 24px 30px}
@@ -459,10 +458,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
   .hero-price s{display:block;margin:0}
   .hero-cta .btn{width:100%}
   .hero-stage{height:470px;margin:0 -16px}
-  .halo{width:340px;height:340px}
-  .bottle-slot{transform:scale(.72);transform-origin:50% 100%}
-  .bottle-slot.left{left:calc(50% - 168px)}
-  .bottle-slot.right{left:calc(50% - 32px)}
   .chip{font-size:.7rem;padding:7px 12px}
   .c1{left:4%;top:4%}.c2{right:2%;top:18%}.c3{left:2%;bottom:10%}.c4{right:2%;bottom:5%}
   .strip{padding:0 16px 20px;gap:10px}

@@ -66,40 +66,29 @@ if (location.hash === '#shot') $$('.reveal').forEach(el => el.classList.add('in'
 const waUrl = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 $$('.js-wa').forEach(a => { a.href = waUrl(a.dataset.msg); a.target = '_blank'; a.rel = 'noopener'; });
 
-/* ---------- hero 3D bottles ---------- */
-function loadLogo() {
-  return new Promise(res => { const im = new Image(); im.onload = () => res(im); im.src = window.VG_LOGO; });
-}
-async function initHero() {
-  const fontsReady = Promise.all(['400', '500', '600', '700', '800'].map(w => document.fonts.load(`${w} 12px Montserrat`)));
-  const [logo] = await Promise.all([loadLogo(), fontsReady]);
-
-  const stage = $('#heroStage'), duo = $('#duo');
-  const bottles = $$('.bottle', stage).map(el => Bottle3D.create(el, el.dataset.kind, logo));
+/* ---------- hero video ring: soft parallax, pause when off screen ---------- */
+function initHero() {
+  const stage = $('#heroStage'), duo = $('#duo'), video = $('video', stage);
   const chips = $$('.chip', stage);
+  let mx = 0, my = 0, tx = 0, ty = 0, visible = true;
 
-  let rot = -18, vel = reduceMotion ? 0 : 0.18, dragging = false, lastX = 0, mx = 0, my = 0, tx = 0, ty = 0;
-  const auto = reduceMotion ? 0 : 0.18;
-
-  stage.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; stage.setPointerCapture(e.pointerId); });
+  if (reduceMotion) { video.removeAttribute('autoplay'); video.pause(); }
   stage.addEventListener('pointermove', e => {
     const r = stage.getBoundingClientRect();
     mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5;
-    if (dragging) { const dx = e.clientX - lastX; lastX = e.clientX; rot += dx * .5; vel = dx * .5; }
   });
-  const stop = () => { dragging = false; };
-  stage.addEventListener('pointerup', stop); stage.addEventListener('pointercancel', stop);
   stage.addEventListener('pointerleave', () => { mx = my = 0; });
 
-  let visible = true;
-  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(stage);
+  new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (reduceMotion) return;
+    if (visible) video.play().catch(() => {}); else video.pause();
+  }).observe(stage);
 
   (function frame() {
     if (visible) {
-      if (!dragging) { vel += (auto - vel) * .04; rot += vel; }
       tx += (mx - tx) * .08; ty += (my - ty) * .08;
       duo.style.transform = `translate3d(${tx * -14}px, ${ty * -10}px, 0)`;
-      bottles.forEach((b, i) => b.set(rot + i * 40));
       chips.forEach(c => { const d = +c.dataset.depth; c.style.transform = `translate3d(${tx * d}px, ${ty * d}px, 0)`; });
     }
     requestAnimationFrame(frame);
