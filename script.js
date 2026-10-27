@@ -226,14 +226,14 @@ new IntersectionObserver(([e]) => { boxVisible = e.isIntersecting; }).observe(bo
 /* ---------- skin finder ---------- */
 const result = $('#result');
 const REC = {
-  niac: { img: 'img/niacinamide-shot.jpg?v=g1', name: 'Niacinamide 10% + Zinc 1% Serum', why: 'Your skin needs oil control and help with spots and pores. Use it every night.', whyUr: 'آپ کی جلد کو تیل کنٹرول اور دھبوں و مسام میں مدد چاہیے۔ اسے ہر رات استعمال کریں۔', pick: 'niac', price: PRICES.niac },
-  vitc: { img: 'img/vitamin-c-shot.jpg?v=g1', name: 'Extra-C Vitamin C Serum', why: 'Your skin needs more glow and an even tone. Use it every morning with sunscreen.', whyUr: 'آپ کی جلد کو مزید نکھار اور یکساں رنگت چاہیے۔ اسے ہر صبح سن اسکرین کے ساتھ استعمال کریں۔', pick: 'vitc', price: PRICES.vitc },
-  duo:  { img: 'img/vitamin-c-shot.jpg?v=g1', name: 'The Glow Duo', why: 'Your skin will love both. Vitamin C in the morning for glow, Niacinamide at night for spots and oil.', whyUr: 'آپ کی جلد کے لیے دونوں بہترین ہیں۔ نکھار کے لیے صبح وٹامن سی، دھبوں اور تیل کے لیے رات کو نیاسینامائیڈ۔', pick: 'duo', price: PRICES.duo }
+  niac: { img: 'img/niacinamide-shot.jpg?v=g1', name: 'Niacinamide 10% + Zinc 1% Serum', why: 'Your skin needs oil control and help with spots and pores. Use it every night.', whyUr: 'آپ کی اسکن کو آئل کنٹرول اور داغ دھبوں اور پورز پر کام چاہیے۔ یہ ہر رات لگائیں۔', pick: 'niac', price: PRICES.niac },
+  vitc: { img: 'img/vitamin-c-shot.jpg?v=g1', name: 'Extra-C Vitamin C Serum', why: 'Your skin needs more glow and an even tone. Use it every morning with sunscreen.', whyUr: 'آپ کی اسکن کو نکھار اور ایک جیسی رنگت چاہیے۔ یہ ہر صبح سن اسکرین کے ساتھ لگائیں۔', pick: 'vitc', price: PRICES.vitc },
+  duo:  { img: 'img/vitamin-c-shot.jpg?v=g1', name: 'The Glow Duo', why: 'Your skin will love both. Vitamin C in the morning for glow, Niacinamide at night for spots and oil.', whyUr: 'آپ کی اسکن کے لیے دونوں بہترین ہیں۔ نکھار کے لیے صبح وٹامن سی، داغ دھبوں اور آئل کے لیے رات کو نیاسینامائیڈ۔', pick: 'duo', price: PRICES.duo }
 };
 $$('#chips button').forEach(b => b.addEventListener('click', () => {
   b.classList.toggle('on');
   const on = $$('#chips button.on');
-  if (!on.length) { result.innerHTML = '<div class="result-empty">' + ICON_UP + ' Tap at least one problem above' + ur('اوپر کم از کم ایک مسئلہ منتخب کریں') + '</div>'; return; }
+  if (!on.length) { result.innerHTML = '<div class="result-empty">' + ICON_UP + ' Tap at least one problem above' + ur('اوپر سے کم از کم ایک مسئلہ چنیں') + '</div>'; return; }
   let n = 0, c = 0;
   on.forEach(x => { n += +x.dataset.n; c += +x.dataset.c; });
   const key = (n && c && Math.min(n, c) / Math.max(n, c) >= .4) ? 'duo' : (n >= c ? 'niac' : 'vitc');
@@ -306,12 +306,12 @@ $('#orderForm').addEventListener('submit', e => {
   if (!city) bad.push(f.city);
   if (address.length < 8) bad.push(f.address);
   const { sub, del } = renderOrder();
-  if (!sub) { err.innerHTML = 'Please add at least one product.' + ur('براہ کرم کم از کم ایک پروڈکٹ شامل کریں۔'); return; }
+  if (!sub) { err.innerHTML = 'Please add at least one product.' + ur('کم از کم ایک پروڈکٹ ایڈ کریں۔'); return; }
   if (bad.length) {
     bad.forEach(x => x.classList.add('bad'));
     err.innerHTML = bad.includes(f.phone) && bad.length === 1
-      ? 'Please enter a correct mobile number, like 03001234567.' + ur('براہ کرم درست موبائل نمبر لکھیں، جیسے 03001234567۔')
-      : 'Please fill all the boxes in red.' + ur('براہ کرم سرخ رنگ والے تمام خانے بھریں۔');
+      ? 'Please enter a correct mobile number, like 03001234567.' + ur('صحیح موبائل نمبر لکھیں، جیسے 03001234567۔')
+      : 'Please fill all the boxes in red.' + ur('لال نشان والے سارے خانے بھریں۔');
     bad[0].focus();
     return;
   }
@@ -326,7 +326,7 @@ $('#orderForm').addEventListener('submit', e => {
   window.open(url, '_blank', 'noopener');
   $('#formOk').innerHTML = ICON_OK + ` Order <b>${orderId}</b> is ready. Press <b>Send</b> in WhatsApp to confirm. ` +
     `<a href="${url}" target="_blank" rel="noopener">WhatsApp didn't open? Tap here.</a>` +
-    ur(`آرڈر ${orderId} تیار ہے۔ کنفرم کرنے کے لیے واٹس ایپ میں Send دبائیں۔`);
+    ur(`آرڈر ${orderId} تیار ہے۔ کنفرم کرنے کے لیے واٹس ایپ میں Send دبا دیں۔`);
 });
 
 /* ---------- order backup to Google Sheet ---------- */
