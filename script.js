@@ -237,9 +237,9 @@ new IntersectionObserver(([e]) => { boxVisible = e.isIntersecting; }).observe(bo
 /* ---------- skin finder ---------- */
 const result = $('#result');
 const REC = {
-  niac: { img: 'img/niacinamide-shot.jpg', name: 'Niacinamide 10% + Zinc 1% Serum', why: 'Your skin needs oil control and help with spots and pores. Use it every night.', whyUr: 'آپ کی جلد کو تیل کنٹرول اور دھبوں و مسام میں مدد چاہیے۔ اسے ہر رات استعمال کریں۔', pick: 'niac', price: PRICES.niac },
-  vitc: { img: 'img/vitamin-c-shot.jpg', name: 'Extra-C Vitamin C Serum', why: 'Your skin needs more glow and an even tone. Use it every morning with sunscreen.', whyUr: 'آپ کی جلد کو مزید نکھار اور یکساں رنگت چاہیے۔ اسے ہر صبح سن اسکرین کے ساتھ استعمال کریں۔', pick: 'vitc', price: PRICES.vitc },
-  duo:  { img: 'img/vitamin-c-shot.jpg', name: 'The Glow Duo', why: 'Your skin will love both. Vitamin C in the morning for glow, Niacinamide at night for spots and oil.', whyUr: 'آپ کی جلد کے لیے دونوں بہترین ہیں۔ نکھار کے لیے صبح وٹامن سی، دھبوں اور تیل کے لیے رات کو نیاسینامائیڈ۔', pick: 'duo', price: PRICES.duo }
+  niac: { img: 'img/niacinamide-shot.jpg?v=g1', name: 'Niacinamide 10% + Zinc 1% Serum', why: 'Your skin needs oil control and help with spots and pores. Use it every night.', whyUr: 'آپ کی جلد کو تیل کنٹرول اور دھبوں و مسام میں مدد چاہیے۔ اسے ہر رات استعمال کریں۔', pick: 'niac', price: PRICES.niac },
+  vitc: { img: 'img/vitamin-c-shot.jpg?v=g1', name: 'Extra-C Vitamin C Serum', why: 'Your skin needs more glow and an even tone. Use it every morning with sunscreen.', whyUr: 'آپ کی جلد کو مزید نکھار اور یکساں رنگت چاہیے۔ اسے ہر صبح سن اسکرین کے ساتھ استعمال کریں۔', pick: 'vitc', price: PRICES.vitc },
+  duo:  { img: 'img/vitamin-c-shot.jpg?v=g1', name: 'The Glow Duo', why: 'Your skin will love both. Vitamin C in the morning for glow, Niacinamide at night for spots and oil.', whyUr: 'آپ کی جلد کے لیے دونوں بہترین ہیں۔ نکھار کے لیے صبح وٹامن سی، دھبوں اور تیل کے لیے رات کو نیاسینامائیڈ۔', pick: 'duo', price: PRICES.duo }
 };
 $$('#chips button').forEach(b => b.addEventListener('click', () => {
   b.classList.toggle('on');
