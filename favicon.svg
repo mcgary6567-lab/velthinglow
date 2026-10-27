@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2E2720"/>
+      <stop offset="1" stop-color="#121010"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE8A3"/>
+      <stop offset=".45" stop-color="#F2BE48"/>
+      <stop offset="1" stop-color="#B9790F"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".56" cy=".36" r=".42">
+      <stop offset="0" stop-color="#F5B83A" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#F5B83A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="116" fill="url(#glow)"/>
+  <rect x="10" y="10" width="492" height="492" rx="106" fill="none" stroke="#E9B44C" stroke-opacity=".35" stroke-width="6"/>
+  <g transform="translate(256 262) scale(1.14) translate(-259 -262)">
+  <!-- V: thick left stroke, hairline right stroke, serifs -->
+  <g fill="url(#gold)">
+    <path d="M118 132h82l84 232-26 34z"/>
+    <path d="M372 132h28L276 398h-22z"/>
+    <rect x="92" y="120" width="134" height="18" rx="4"/>
+    <rect x="344" y="120" width="82" height="18" rx="4"/>
+  </g>
+  <!-- sparkle in the V -->
+  <g fill="#FFF3C9">
+    <path d="M288 150c4 30 12 38 42 42-30 4-38 12-42 42-4-30-12-38-42-42 30-4 38-12 42-42z"/>
+    <path d="M356 82c2 14 6 18 20 20-14 2-18 6-20 20-2-14-6-18-20-20 14-2 18-6 20-20z" opacity=".9"/>
+  </g>
+  </g>
+</svg>
