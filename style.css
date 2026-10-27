@@ -62,13 +62,9 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .brand-tag::before,.brand-tag::after{content:"";flex:1;min-width:10px;height:1px;background:linear-gradient(90deg,rgba(176,122,18,0),rgba(176,122,18,.75))}
 .brand-tag::after{background:linear-gradient(90deg,rgba(176,122,18,.75),rgba(176,122,18,0))}
 .nav-logo{flex:none}
-.nav-logo img{height:60px;transition:height .3s;filter:contrast(1.22) saturate(1.15) brightness(.86) drop-shadow(0 2px 6px rgba(176,110,10,.35))}
-.nav.scrolled .nav-logo img{height:48px}
-.nav.scrolled .nav-logo .brand-tag{font-size:.7rem}
-.nav-logo .brand-tag{font-size:.8rem}
-.nav-logo .brand-tag span{background:linear-gradient(90deg,#6E4506 0%,#A86F0E 45%,#C98E1F 55%,#7A4C06 100%);-webkit-background-clip:text;background-clip:text}
-.nav-logo .brand-tag::before{background:linear-gradient(90deg,rgba(140,90,10,0),rgba(140,90,10,.9))}
-.nav-logo .brand-tag::after{background:linear-gradient(90deg,rgba(140,90,10,.9),rgba(140,90,10,0))}
+.nav-logo img{height:52px;transition:height .3s}
+.nav.scrolled .nav-logo img{height:42px}
+.nav.scrolled .nav-logo .brand-tag{font-size:.66rem}
 .nav-links{display:flex;align-items:center;gap:2px;margin:0 auto;padding:5px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 6px 20px -14px rgba(60,40,10,.3);font-weight:600;font-size:.88rem;color:var(--ink-2)}
 .nav-links a{padding:9px 16px;border-radius:999px;transition:background .2s,color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--ink);background:var(--orange-soft)}
@@ -454,8 +450,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
   .ticks li,.faq details p,.pol li,.step p,.rcard li{font-size:1rem}
   section{padding:70px 16px}
   .nav-in,.nav.scrolled .nav-in{padding:10px 16px}
-  .nav-logo img,.nav.scrolled .nav-logo img{height:44px}
-  .nav-logo .brand-tag,.nav.scrolled .nav-logo .brand-tag{font-size:.64rem;letter-spacing:.28em;gap:5px}
+  .nav-logo img,.nav.scrolled .nav-logo img{height:40px}
+  .nav-logo .brand-tag,.nav.scrolled .nav-logo .brand-tag{font-size:.6rem;letter-spacing:.28em;gap:5px}
   .nav-logo .brand-tag span{margin-right:-.28em}
   .f-brand .f-logo{width:230px}
   .nav-cta{padding:10px 16px}
@@ -506,7 +502,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
 /* small phones (320–380px): header, big buttons and the order form must fit without sideways scroll */
 @media (max-width:380px){
   .nav-in,.nav.scrolled .nav-in{padding:8px 12px;gap:8px}
-  .nav-logo img,.nav.scrolled .nav-logo img{height:34px}
+  .nav-logo img,.nav.scrolled .nav-logo img{height:32px}
   .nav-logo .brand-tag,.nav.scrolled .nav-logo .brand-tag{font-size:.5rem;letter-spacing:.2em}
   .nav-actions{gap:6px}
   .nav-cta{padding:9px 12px;font-size:.82rem}
