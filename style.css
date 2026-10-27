@@ -52,16 +52,18 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .nav.scrolled{background:rgba(255,255,255,.92);border-color:var(--line);box-shadow:0 10px 30px -22px rgba(60,40,10,.35)}
 .nav-in{max-width:1240px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;transition:padding .3s}
 .nav.scrolled .nav-in{padding:8px 24px}
-.brand{display:inline-flex;flex-direction:column;align-items:center;gap:3px;line-height:1}
-.brand img{width:auto;filter:drop-shadow(0 2px 6px rgba(214,150,30,.28))}
-.brand-tag{display:flex;align-items:center;gap:8px;font-size:.66rem;font-weight:700;letter-spacing:.34em;margin-right:-.34em;text-transform:uppercase;color:#B07A12;white-space:nowrap}
-.brand-tag::before,.brand-tag::after{content:"";width:14px;height:1px;background:currentColor;opacity:.6}
+.brand{display:inline-flex;flex-direction:column;align-items:stretch;gap:4px;line-height:1}
+.brand img{display:block;width:auto;margin:0 auto;filter:drop-shadow(0 2px 8px rgba(214,150,30,.25))}
+/* tagline: serif caps in a gold gradient, hairline rules that stretch to the logo's width */
+.brand-tag{display:flex;align-items:center;gap:7px;font-family:'Cormorant Garamond',Georgia,serif;font-size:.74rem;font-weight:700;
+  letter-spacing:.36em;text-transform:uppercase;white-space:nowrap;color:#B07A12}
+.brand-tag span{background:linear-gradient(90deg,#9C6A12 0%,#E2B04A 45%,#F6D88A 55%,#B07A12 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:-.36em}
+.brand-tag::before,.brand-tag::after{content:"";flex:1;min-width:10px;height:1px;background:linear-gradient(90deg,rgba(176,122,18,0),rgba(176,122,18,.75))}
+.brand-tag::after{background:linear-gradient(90deg,rgba(176,122,18,.75),rgba(176,122,18,0))}
 .nav-logo{flex:none}
-.nav-logo img{height:54px;transition:height .3s}
-.nav-logo .brand-tag{font-size:.64rem;letter-spacing:.3em;margin-right:-.3em}
-.nav-logo .brand-tag::before,.nav-logo .brand-tag::after{display:none}
-.nav.scrolled .nav-logo img{height:44px}
-.nav.scrolled .nav-logo .brand-tag{font-size:.56rem}
+.nav-logo img{height:52px;transition:height .3s}
+.nav.scrolled .nav-logo img{height:42px}
+.nav.scrolled .nav-logo .brand-tag{font-size:.66rem}
 .nav-links{display:flex;align-items:center;gap:2px;margin:0 auto;padding:5px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 6px 20px -14px rgba(60,40,10,.3);font-weight:600;font-size:.88rem;color:var(--ink-2)}
 .nav-links a{padding:9px 16px;border-radius:999px;transition:background .2s,color .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--ink);background:var(--orange-soft)}
@@ -142,7 +144,6 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .pcard:hover{box-shadow:0 40px 80px -30px rgba(60,40,10,.4)}
 .pcard-img{position:relative;aspect-ratio:1/1;overflow:hidden;background:#f3f1ee}
 .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.pcard[data-theme="niac"] .pcard-img img{object-position:50% 38%}
 .pcard:hover .pcard-img img{transform:scale(1.05)}
 .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.55),rgba(255,255,255,0) 50%);opacity:0;transition:opacity .3s;pointer-events:none}
 .pcard:hover .glare{opacity:1}
@@ -284,7 +285,7 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .deal-visual{position:relative;height:380px;perspective:1000px}
 .dv{position:absolute;width:62%;border-radius:24px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);border:5px solid #fff;object-fit:cover;aspect-ratio:4/5}
 .dv1{left:2%;top:4%;transform:rotateY(18deg) rotateZ(-6deg);animation:bob 6s ease-in-out infinite}
-.dv2{right:2%;top:12%;transform:rotateY(-18deg) rotateZ(6deg);object-position:50% 40%;animation:bob 6s ease-in-out infinite -3s}
+.dv2{right:2%;top:12%;transform:rotateY(-18deg) rotateZ(6deg);animation:bob 6s ease-in-out infinite -3s}
 @keyframes bob{50%{translate:0 -14px}}
 
 /* Steps */
@@ -340,7 +341,10 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .footer{background:#17181C;color:#c9c9cc;text-align:center;padding:60px 24px 110px}
 .f-brand{margin:0 auto 18px}
 .f-brand .f-logo{width:280px;height:auto}
-.f-brand .brand-tag{font-size:.82rem;color:#E9B44C;margin-top:6px}
+.f-brand .brand-tag{font-size:1rem;margin-top:8px;color:#E9B44C}
+.f-brand .brand-tag span{background:linear-gradient(90deg,#C8922A 0%,#F2C766 45%,#FFE6A6 55%,#D9A13E 100%);-webkit-background-clip:text;background-clip:text}
+.f-brand .brand-tag::before{background:linear-gradient(90deg,rgba(233,180,76,0),rgba(233,180,76,.8))}
+.f-brand .brand-tag::after{background:linear-gradient(90deg,rgba(233,180,76,.8),rgba(233,180,76,0))}
 .f-brand img{filter:drop-shadow(0 4px 14px rgba(233,180,76,.35))}
 .f-links{display:flex;justify-content:center;flex-wrap:wrap;gap:24px;margin:22px 0;font-weight:600;color:#fff}
 .f-links a:hover{color:var(--orange)}
@@ -444,7 +448,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
   section{padding:70px 16px}
   .nav-in,.nav.scrolled .nav-in{padding:10px 16px}
   .nav-logo img,.nav.scrolled .nav-logo img{height:40px}
-  .nav-logo .brand-tag,.nav.scrolled .nav-logo .brand-tag{font-size:.52rem;letter-spacing:.24em;margin-right:-.24em}
+  .nav-logo .brand-tag,.nav.scrolled .nav-logo .brand-tag{font-size:.6rem;letter-spacing:.28em;gap:5px}
+  .nav-logo .brand-tag span{margin-right:-.28em}
   .f-brand .f-logo{width:230px}
   .nav-cta{padding:10px 16px}
   .hero{padding-top:28px}
