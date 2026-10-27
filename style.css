@@ -16,6 +16,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{text-align:left;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+@supports (overflow:clip){html,body{overflow-x:clip}}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
@@ -110,7 +111,7 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .hero-trust{display:flex;flex-wrap:wrap;gap:22px;list-style:none;margin-top:26px;font-size:.9rem;font-weight:600;color:var(--ink-2)}
 .hero-trust b{color:var(--orange-2);margin-right:4px}
 
-.hero-stage{position:relative;height:640px}
+.hero-stage{position:relative;height:640px;overflow:hidden}
 @keyframes spin{to{transform:rotate(360deg)}}
 /* hero video in a story-style ring */
 .hring-pos{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);z-index:2}
@@ -310,7 +311,7 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .qty button{width:44px;height:44px;border-radius:50%;background:#fff;font-size:1.1rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.08)}
 .qty span{min-width:26px;text-align:center;font-weight:800}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fields label{display:flex;flex-direction:column;gap:6px;font-size:.82rem;font-weight:700;color:var(--ink-2)}
+.fields label{display:flex;flex-direction:column;gap:6px;min-width:0;font-size:.82rem;font-weight:700;color:var(--ink-2)}
 .fields .full{grid-column:1/-1}
 .fields input,.fields select,.fields textarea{font:inherit;font-weight:500;font-size:.95rem;padding:13px 14px;border:2px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);outline:none;transition:border-color .2s;resize:vertical}
 .fields input:focus,.fields select:focus,.fields textarea:focus{border-color:var(--orange)}
@@ -414,7 +415,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
 
 /* Responsive */
 @media (max-width:1024px){
-  .hero{grid-template-columns:1fr;text-align:center;min-height:0}
+  .hero{grid-template-columns:minmax(0,1fr);text-align:center;min-height:0}
   .hero .lead{margin-left:auto;margin-right:auto}
   .hero-cta,.hero-trust{justify-content:center}
   .hero-trust .ur{padding-left:0}
@@ -427,7 +428,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
   .deal-in{grid-template-columns:1fr;padding:44px 32px;text-align:center}
   .deal-copy p:not(.eyebrow){margin-left:auto;margin-right:auto}
   .deal-price,.countdown{justify-content:center}
-  .order-in{grid-template-columns:1fr}
+  .order-in{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:1100px){
   .nav-wa-txt{display:none}
@@ -494,6 +495,21 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
   .step{display:grid;grid-template-columns:44px 1fr;column-gap:14px;align-items:start;padding:18px;border-radius:18px}
   .step > span{width:44px;height:44px;margin:0;grid-row:1 / span 4;font-size:1.1rem}
   .deal-visual{height:250px}
+}
+/* small phones (320–380px): header, big buttons and the order form must fit without sideways scroll */
+@media (max-width:380px){
+  .nav-in,.nav.scrolled .nav-in{padding:8px 12px;gap:8px}
+  .nav-logo img,.nav.scrolled .nav-logo img{height:32px}
+  .nav-logo .brand-tag,.nav.scrolled .nav-logo .brand-tag{font-size:.5rem;letter-spacing:.2em}
+  .nav-actions{gap:6px}
+  .nav-cta{padding:9px 12px;font-size:.82rem}
+  .nav-cta span{display:none}
+  .hero h1{font-size:2.05rem}
+  .btn-lg{white-space:normal;text-align:center;padding:14px 18px}
+  .oform{padding:14px}
+  .line{padding:10px;gap:8px}
+  .ln-info{min-width:0}
+  .fields input,.fields select,.fields textarea{min-width:0;width:100%}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}

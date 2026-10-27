@@ -33,11 +33,18 @@ const source = (() => {
 
 /* ---------- nav + reveal + sticky bar ---------- */
 const nav = $('#nav'), mbar = $('#mbar');
-addEventListener('scroll', () => {
+// sticky bar: measured against the stable layout height (not innerHeight, which jumps as the mobile
+// address bar hides/shows) with a 60px dead zone, so the bar never flickers in and out mid-scroll
+const orderSec = $('#order');
+let barOn = false, ticking = false;
+const onScroll = () => {
+  ticking = false;
   nav.classList.toggle('scrolled', scrollY > 10);
-  const orderTop = $('#order').getBoundingClientRect().top;
-  mbar.classList.toggle('show', scrollY > 500 && orderTop > innerHeight);
-}, { passive: true });
+  const vh = document.documentElement.clientHeight, orderTop = orderSec.getBoundingClientRect().top;
+  const want = barOn ? scrollY > 440 && orderTop > vh - 60 : scrollY > 500 && orderTop > vh + 60;
+  if (want !== barOn) mbar.classList.toggle('show', barOn = want);
+};
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 
 /* mobile menu */
 const burger = $('#burger');
