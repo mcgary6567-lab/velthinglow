@@ -131,7 +131,7 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .hring-cap{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:.8rem;font-weight:600;color:var(--grey);white-space:nowrap}
 
 /* Strip */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1240px;margin:0 auto;padding:0 24px 30px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1080px;margin:24px auto 0}
 .strip-item{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
 .strip-item .ico{width:52px;height:52px;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange-2);border-radius:14px;flex:none}
 .strip-item .ico .ic{width:26px;height:26px}
@@ -461,7 +461,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.flip:focus-visible,.
   .hero-stage{height:470px;margin:0 -16px}
   .chip{font-size:.7rem;padding:7px 12px}
   .c1{left:4%;top:4%}.c2{right:2%;top:18%}.c3{left:2%;bottom:10%}.c4{right:2%;bottom:5%}
-  .strip{padding:0 16px 20px;gap:10px}
+  .strip{gap:10px;margin-top:12px}
   .strip-item{flex-direction:column;text-align:center;padding:16px 10px;gap:8px}
   .cards{grid-template-columns:1fr;gap:24px}
   .pcard-body{padding:24px 22px}
