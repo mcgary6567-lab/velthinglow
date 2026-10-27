@@ -131,7 +131,7 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .hring-cap{position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:.8rem;font-weight:600;color:var(--grey);white-space:nowrap}
 
 /* Strip */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1080px;margin:24px auto 0}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1192px;margin:0 auto}
 .strip-item{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
 .strip-item .ico{width:52px;height:52px;display:grid;place-items:center;background:var(--orange-soft);color:var(--orange-2);border-radius:14px;flex:none}
 .strip-item .ico .ic{width:26px;height:26px}
