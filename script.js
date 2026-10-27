@@ -11,6 +11,12 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const rs = n => 'Rs ' + n.toLocaleString('en-PK');
 const ur = t => `<span class="ur" lang="ur" dir="rtl">${t}</span>`;
+// small line icons (same set as the page) instead of emoji
+const ICON_UP = '<svg class="ic ic-in" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>';
+const ICON_OK = '<svg class="ic ic-in" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>';
+const ICON_DROP = '<svg class="ic ic-box" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>';
+const ICON_SHIELD = '<svg class="ic ic-box" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>';
+const ICON_SUN = '<svg class="ic ic-box" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
 
 /* remember where the visitor came from (ads), so each order in the sheet shows its source */
 const source = (() => {
@@ -139,7 +145,7 @@ const BOX = {
       <p class="d-text">A potent formula with Niacinamide to help refine pores, control excess oil and improve uneven skin tone while strengthening the skin barrier for a healthy, balanced complexion.</p>
       <div class="d-rule"></div><div class="d-ing"><b class="dh">INGREDIENTS (Key Actives)</b><p>Niacinamide, Zinc PCA, Hyaluronic Acid, Alpha Arbutin and Panthenol (Vitamin B5).</p></div>
       <p class="d-small">For external use only.<br>Store in a cool, dry place.<br>Avoid direct sunlight.</p></div>`,
-    left: why('Why Niacinamide?', [['◎', 'Reduces Appearance of Pores'], ['💧', 'Controls Oil Production'], ['◐', 'Improves Uneven Skin Tone'], ['🛡', 'Strengthens Skin Barrier']])
+    left: why('Why Niacinamide?', [['◎', 'Reduces Appearance of Pores'], [ICON_DROP, 'Controls Oil Production'], ['◐', 'Improves Uneven Skin Tone'], [ICON_SHIELD, 'Strengthens Skin Barrier']])
   },
   vitc: {
     cls: 'vc',
@@ -154,7 +160,7 @@ const BOX = {
       <p class="d-text" style="margin-top:10px">Helps improve uneven tone, boost radiance and defend against daily stressors for a healthy, luminous glow.</p>
       <div class="d-rule"></div><div class="d-ing"><b class="dh">INGREDIENTS (Key Actives)</b><p>Vitamin C, Collagen &amp; Centella — brighten, hydrate and firm skin.</p></div>
       <p class="d-small">For external use only.<br>Store in a cool, dry place.<br>Avoid direct sunlight.</p></div>`,
-    left: why('Why Vitamin C?', [['✦', 'Brightens &amp; evens skin tone'], ['☀', 'Boosts radiance &amp; glow'], ['🛡', 'Antioxidant protection'], ['◐', 'Reduces dullness']])
+    left: why('Why Vitamin C?', [['✦', 'Brightens &amp; evens skin tone'], [ICON_SUN, 'Boosts radiance &amp; glow'], [ICON_SHIELD, 'Antioxidant protection'], ['◐', 'Reduces dullness']])
   }
 };
 
@@ -238,7 +244,7 @@ const REC = {
 $$('#chips button').forEach(b => b.addEventListener('click', () => {
   b.classList.toggle('on');
   const on = $$('#chips button.on');
-  if (!on.length) { result.innerHTML = '<div class="result-empty">👆 Tap at least one problem above' + ur('اوپر کم از کم ایک مسئلہ منتخب کریں') + '</div>'; return; }
+  if (!on.length) { result.innerHTML = '<div class="result-empty">' + ICON_UP + ' Tap at least one problem above' + ur('اوپر کم از کم ایک مسئلہ منتخب کریں') + '</div>'; return; }
   let n = 0, c = 0;
   on.forEach(x => { n += +x.dataset.n; c += +x.dataset.c; });
   const key = (n && c && Math.min(n, c) / Math.max(n, c) >= .4) ? 'duo' : (n >= c ? 'niac' : 'vitc');
@@ -329,7 +335,7 @@ $('#orderForm').addEventListener('submit', e => {
     name, phone, city, address, ...source, page: location.href.split('#')[0] });
   const url = waUrl(msg);
   window.open(url, '_blank', 'noopener');
-  $('#formOk').innerHTML = `✅ Order <b>${orderId}</b> is ready. Press <b>Send</b> in WhatsApp to confirm. ` +
+  $('#formOk').innerHTML = ICON_OK + ` Order <b>${orderId}</b> is ready. Press <b>Send</b> in WhatsApp to confirm. ` +
     `<a href="${url}" target="_blank" rel="noopener">WhatsApp didn't open? Tap here.</a>` +
     ur(`آرڈر ${orderId} تیار ہے۔ کنفرم کرنے کے لیے واٹس ایپ میں Send دبائیں۔`);
 });
