@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://velthineglow.com/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <image:image>
       <image:loc>https://velthineglow.com/img/vitamin-c-shot.jpg</image:loc>
       <image:title>VelthineGlow Extra-C Vitamin C Serum 30ml</image:title>
@@ -11,5 +11,18 @@
       <image:loc>https://velthineglow.com/img/niacinamide-shot.jpg</image:loc>
       <image:title>VelthineGlow Niacinamide 10% + Zinc 1% Serum 30ml</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://velthineglow.com/img/og-share.jpg</image:loc>
+      <image:title>VelthineGlow Vitamin C and Niacinamide Serum, Cash on Delivery in Pakistan</image:title>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://velthineglow.com/img/hero-glow-poster.jpg</video:thumbnail_loc>
+      <video:title>VelthineGlow daily glow routine: 3 drops a day</video:title>
+      <video:description>A woman with dull, tired skin applies serum drops, spreads them with her fingers and smiles with fresh, glowing skin. Vitamin C in the morning, Niacinamide at night.</video:description>
+      <video:content_loc>https://velthineglow.com/img/hero-glow.mp4</video:content_loc>
+      <video:duration>13</video:duration>
+      <video:publication_date>2026-10-27T12:00:00+05:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 </urlset>
