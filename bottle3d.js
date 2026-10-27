@@ -74,7 +74,7 @@
     vtext(ctx, '+ Niacinamide', cx - 20, by + bh - 4, '500 11px Montserrat', '#2b2b2b');
     vtext(ctx, '+ Zinc', cx - 4, by + bh - 4, '500 11px Montserrat', '#2b2b2b');
 
-    text(ctx, 'Reduces Melasma &', bx, 180, '700 9.5px Montserrat');
+    text(ctx, 'Evens Skin Tone &', bx, 180, '700 9.5px Montserrat');
     text(ctx, 'Soothes Skin', bx, 191, '700 9.5px Montserrat');
     ctx.fillStyle = '#cfcfcf'; ctx.fillRect(bx, 196, 92, 2);
     text(ctx, 'For all skin types', bx, 207, '400 7.5px Montserrat', '#444');
@@ -90,7 +90,7 @@
       .forEach((s, i) => text(ctx, '• ' + s, sx, 50 + i * 11, '400 7px Montserrat', '#333'));
     text(ctx, 'Skin types', sx, 128, '700 9px Montserrat');
     text(ctx, 'For all skin types', sx, 140, '400 7px Montserrat', '#333');
-    text(ctx, '30ml / 1.01 fl.oz', sx, 196, '600 8px Montserrat', '#222');
+    text(ctx, '30 ml / 1.01 fl oz', sx, 196, '600 8px Montserrat', '#222');
 
     const lx = cx - 182;
     text(ctx, 'Directions', lx, 34, '700 10px Montserrat');
@@ -123,7 +123,7 @@
     ctx.fillStyle = '#16181b'; ctx.fillRect(cx - 44, 124, 88, 16);
     text(ctx, '5% VITAMIN C', cx, 135.5, '800 9px Montserrat', '#fff', 'center', .6);
     text(ctx, 'WITH COLLAGEN & CENTELLA', cx, 154, '700 7.5px Montserrat', '#1b1b1b', 'center', .5);
-    text(ctx, '30 mL, 1 fl. oz', cx, 198, '600 10px Montserrat', '#1b1b1b', 'center');
+    text(ctx, '30 ml / 1.01 fl oz', cx, 198, '600 10px Montserrat', '#1b1b1b', 'center');
 
     const sx = cx + 104;
     text(ctx, 'VITAMIN C', sx, 40, '800 9px Montserrat');

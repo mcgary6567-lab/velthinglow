@@ -1,7 +1,7 @@
 /* VelthineGlow sale page — interactions */
 const WHATSAPP = '923472616688'; // business WhatsApp number, international format without +
 const PRICES = { niac: 1990, vitc: 1990, duo: 3490 };
-const NAMES = { niac: 'Niacinamide Serum', vitc: 'Extra-C Vitamin C Serum', duo: 'Glow Duo (Vitamin C + Niacinamide)' };
+const NAMES = { niac: 'Niacinamide 10% + Zinc 1% Serum', vitc: 'Extra-C Vitamin C Serum', duo: 'Glow Duo (Vitamin C + Niacinamide)' };
 const FREE_DELIVERY_FROM = 0, DELIVERY_FEE = 0; // free delivery on every order
 // Google Apps Script web-app URL (see google-sheet/SETUP.md). Leave empty to send orders to WhatsApp only.
 const ORDER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzK1V_Mxn7EmlmHqNj_3-rvuhrSGp1mYMR9pJWh-eGo05G33hDAfElXz67_-K9Lfz0SsA/exec';
@@ -133,7 +133,7 @@ const BOX = {
       <div class="nf-act"><div class="vt">+ 1% Zinc</div></div></div>
       <div class="nf-claims">Fade Dark Spots<br>Control Oil<br>Brighten Skin</div>
       <div class="nf-types">For all skin types</div>
-      ${flower}<span class="vol" style="left:auto;right:96px;bottom:14px">30ml/1.01 fl.oz</span>${chevron}</div>`,
+      ${flower}<span class="vol" style="left:auto;right:96px;bottom:14px">30 ml / 1.01 fl oz</span>${chevron}</div>`,
     right: directions,
     back: `<div class="bf-pad"><div class="d-title">Niacinamide<br>Serum</div>
       <p class="d-text">A potent formula with Niacinamide to help refine pores, control excess oil and improve uneven skin tone while strengthening the skin barrier for a healthy, balanced complexion.</p>
@@ -147,7 +147,7 @@ const BOX = {
       <div class="vc-name"><small>EXTRA-C</small><strong>VITAMIN C</strong><em>BRIGHTENING SERUM</em></div>
       <div class="vc-claim">IMPROVES RADIANCE &amp;<br>REDUCES THE LOOK OF WRINKLES</div>
       <span class="vc-pill">5% VITAMIN C</span><div class="vc-with">WITH COLLAGEN &amp; CENTELLA</div>
-      <div class="vc-vol">30ml/1.01 fl.oz</div></div>`,
+      <div class="vc-vol">30 ml / 1.01 fl oz</div></div>`,
     right: directions,
     back: `<div class="bf-pad"><div class="d-title">Vitamin C<br>Serum</div>
       <p class="d-text">A lightweight, fast-absorbing formula powered by stabilized Vitamin C to brighten, hydrate and protect the skin.</p>
@@ -231,7 +231,7 @@ new IntersectionObserver(([e]) => { boxVisible = e.isIntersecting; }).observe(bo
 /* ---------- skin finder ---------- */
 const result = $('#result');
 const REC = {
-  niac: { img: 'img/niacinamide-pack.jpg', name: 'Niacinamide Serum', why: 'Your skin needs oil control and help with spots and pores. Use it every night.', whyUr: 'آپ کی جلد کو تیل کنٹرول اور دھبوں و مسام میں مدد چاہیے۔ اسے ہر رات استعمال کریں۔', pick: 'niac', price: PRICES.niac },
+  niac: { img: 'img/niacinamide-pack.jpg', name: 'Niacinamide 10% + Zinc 1% Serum', why: 'Your skin needs oil control and help with spots and pores. Use it every night.', whyUr: 'آپ کی جلد کو تیل کنٹرول اور دھبوں و مسام میں مدد چاہیے۔ اسے ہر رات استعمال کریں۔', pick: 'niac', price: PRICES.niac },
   vitc: { img: 'img/vitamin-c-pack.jpg', name: 'Extra-C Vitamin C Serum', why: 'Your skin needs more glow and an even tone. Use it every morning with sunscreen.', whyUr: 'آپ کی جلد کو مزید نکھار اور یکساں رنگت چاہیے۔ اسے ہر صبح سن اسکرین کے ساتھ استعمال کریں۔', pick: 'vitc', price: PRICES.vitc },
   duo:  { img: 'img/vitamin-c-pack.jpg', name: 'The Glow Duo', why: 'Your skin will love both. Vitamin C in the morning for glow, Niacinamide at night for spots and oil.', whyUr: 'آپ کی جلد کے لیے دونوں بہترین ہیں۔ نکھار کے لیے صبح وٹامن سی، دھبوں اور تیل کے لیے رات کو نیاسینامائیڈ۔', pick: 'duo', price: PRICES.duo }
 };
@@ -243,12 +243,9 @@ $$('#chips button').forEach(b => b.addEventListener('click', () => {
   on.forEach(x => { n += +x.dataset.n; c += +x.dataset.c; });
   const key = (n && c && Math.min(n, c) / Math.max(n, c) >= .4) ? 'duo' : (n >= c ? 'niac' : 'vitc');
   const r = REC[key];
-  const match = Math.min(98, 78 + on.length * 4);
   result.innerHTML = `<div class="rec"><img src="${r.img}" alt="${r.name}">
-    <div><small class="k">Best for you</small><h3>${r.name}</h3><p>${r.why}${ur(r.whyUr)}</p>
-    <small class="k">Match ${match}%</small><div class="meter"><i style="width:0"></i></div>
+    <div><small class="k">Best match for you</small><h3>${r.name}</h3><p>${r.why}${ur(r.whyUr)}</p>
     <a href="#order" class="btn btn-orange js-pick" data-pick="${r.pick}">Order for ${rs(r.price)}</a></div></div>`;
-  requestAnimationFrame(() => requestAnimationFrame(() => { $('.meter i', result).style.width = match + '%'; }));
 }));
 
 /* ---------- flip cards on touch ---------- */
