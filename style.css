@@ -376,6 +376,8 @@ picture{display:contents}
 .countdown small .ur-in{display:block;font-size:1.15em;line-height:1.9;opacity:.95}
 .fine .ur{font-size:.95em;color:var(--grey)}
 .faq summary .ur{font-weight:400;color:var(--grey)}
+/* closed questions show English only; the Urdu line appears once the item is opened */
+details:not([open]) > summary .ur{display:none}
 .faq details p .ur{margin-top:6px}
 .footer .ur{color:#a9a9ad}
 .fields .lbl .ur-in{color:var(--grey);font-size:1em}
