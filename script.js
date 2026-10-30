@@ -1,6 +1,6 @@
 /* VelthineGlow sale page — interactions */
 const WHATSAPP = '923472616688'; // business WhatsApp number, international format without +
-const PRICES = { niac: 1990, vitc: 1990, duo: 3490 };
+const PRICES = { niac: 1490, vitc: 1490, duo: 2690 };
 const NAMES = { niac: 'Niacinamide 10% + Zinc 1% Serum', vitc: 'Extra-C Vitamin C Serum', duo: 'Glow Duo (Vitamin C + Niacinamide)' };
 const FREE_DELIVERY_FROM = 0, DELIVERY_FEE = 0; // free delivery on every order
 // Google Apps Script web-app URL (see google-sheet/SETUP.md). Leave empty to send orders to WhatsApp only.

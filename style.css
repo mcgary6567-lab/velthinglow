@@ -160,6 +160,7 @@ h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800}
 .pcard-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px dashed var(--line)}
 .price strong{font-size:1.6rem;font-weight:800;display:block;line-height:1.1}
 .price small{color:var(--grey);font-size:.8rem}
+.price strong s{font-size:.55em;color:var(--grey);font-weight:600;margin-left:6px}
 
 /* Box section */
 .boxsec{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;max-width:1240px;margin:0 auto}
